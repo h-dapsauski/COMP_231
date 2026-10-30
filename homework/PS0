@@ -1,1 +1,56 @@
+#This is a guess the number game. 
+
+import random
+# import random number generator 
+
+guesses = 0 
+#guesses variable added to initialize while loop --> 0 guesses at the start of the game 
+
+secret_number = random.randint(1,10)
+#secret_number variable named and random number generator
+#generates integers between 1 and 10 - (so values 1,2,3,4,5,6,7,8,9,and 10)
+
+print("Hello!")
+print("I am thinking of a number between 1 and 10.")
+#introducing the game and telling the user the secret number is between 1 and 10. 
+
+#while loop is used so that the code will continually run but only until 9 guesses 
+#there are only 10 possible secret numbers that why the guess limit was set to 9 
+#I was not sure how to make the program run without using this guess limit method 
+
+while guesses < 9:
+    print("What number am I thinking of?") #including this in the loop means the question will continually print 
+    #and will only stop once the user guessses the correct number 
+    guess = input()
+    guess = int(guess)
+    guesses = guesses + 1
+    
+#lines 32-34 are there to count the user input 
+#counting the number of inputs (increasing by 1) until the limit of 9 guesses is reached 
+
+    if guess < secret_number: 
+        print ("That is not the number that I am thinking of. That's too low.")
+#line 39/40 states if the user inputted guess is less than the random generate secret number 
+#the statement "That is not the number I am think of. That's too low." will print if the user inputed a guess that was below the secret number 
+#then the user will be asked the question "What number am I thinking of" which means the user needs to guess again!
+
+    if guess > secret_number:
+        print("That is not the number that I am thinking of. That's too high.")
+#line 45/46 states if the user inputted guess is less than the random generate secret number the statement "That is not the number I am think of. That's too high." 
+#then the user will be asked the question "What number am I thinking of" which means the user needs to guess again!
+        
+    if guess == secret_number: 
+        break
+#lines 50/51 states that is the user inputted the correct random generated secret number 
+#and the while loop breaks/stops 
+    
+if guess == secret_number:
+    secret_number = str(secret_number)
+    print("You guessed it! I was thinking of the number " + secret_number + "!")
+    
+#line 55 is when the user correctly guesses the secret number, 
+#the program lets the user know they guessed the correct secret number 
+#line 56 converts the secret_number variable into a string 
+#so it is properly formatted to be printed into the finaml string which as I stated earlier 
+#line 57 lets the user know they guessed the correect secret number and what the secret number is. 
 
